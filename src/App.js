@@ -1,9 +1,10 @@
-import React from 'react';
-import { Counter } from './features/counter/Counter';
+import { Header } from './layouts/Header/Header';
+import RouterPage from './router/RouterPage';
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Header />
+      <RouterPage />
     </div>
   );
 }
