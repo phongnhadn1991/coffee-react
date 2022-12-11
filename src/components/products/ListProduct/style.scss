@@ -1,0 +1,8 @@
+.p-listPro {
+    display: grid;
+    grid-row: revert;
+    justify-content: center;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}

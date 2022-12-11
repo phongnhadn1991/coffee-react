@@ -1,7 +1,7 @@
 import React, { memo, useRef } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
-import { Counter } from "../features/counter/Counter"
-import { Router } from 'react-router-dom';
+import Homepage from "../pages/HomePage";
+import ProductPage from "../pages/ProductPage";
 
 const RouterPage = () => {
     const mainPageRef = useRef()
@@ -11,7 +11,8 @@ const RouterPage = () => {
             <div className="container-full">
                 <Routes>
                     <Route location={location} key={location.pathname} >
-                        <Route index element={<Counter />} />
+                        <Route index element={<Homepage />} />
+                        <Route path='/products' element={<ProductPage />} />
                     </Route>
                 </Routes>
             </div>
