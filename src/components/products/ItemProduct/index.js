@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 function ItemProduct(props) {
     const {id,title,price,srcImg,categoryId} = props.product
     const dispatch = useDispatch()
+    
     return (
         <div className='p-itemPro'>
             <div className='p-itemPro_content'>

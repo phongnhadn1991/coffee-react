@@ -1,0 +1,103 @@
+.c-header {
+    background: var(--radial-gradient-orange-1);
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    .box_wrap {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      li {
+        list-style-type: none;
+    }
+    a {
+          color: #fff;
+          font-size: 14px;
+          line-height: 150%;
+          font-weight: 600;
+          text-decoration: none;
+        }
+    }
+    .block-button {
+      position: relative;
+      ul {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0;
+        gap: 10px;
+        padding: 0;
+        li {
+          a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #fff;
+            line-height: 1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            &:hover, &.active {
+              background: var(--orange-4);
+            }
+            i {
+              color: #fff;
+            }
+            &.btn_login {
+              i {
+                font-size: 30px;
+              }
+            }
+            &.btn_cart {
+              i {
+                font-size: 23px;
+              }
+            }
+          }
+        }
+      }
+      .box_action_user {
+        background: #fff;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        width: 180px;
+        margin-left: -75px;
+        padding: 20px 20px 10px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        box-shadow: var(--product-box-shadow);
+        .btn_close {
+          position: absolute;
+          right: 7px;
+          top: 7px;
+          cursor: pointer;
+          transition: all .2s ease-in-out;
+          &:hover {
+            color: red;
+            transform: rotate(90deg);
+          }
+        }
+        a {
+          display: block;
+          color: gray;
+          text-decoration: none;
+          &:hover {
+            color: var(--orange-2)
+          }
+        }
+      }
+    }
+  }
