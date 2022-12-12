@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { selectListCart } from "../../features/cart/cartSlice";
 import './style.scss'
 
-const Header = () => {
+const HeaderLayout = () => {
     const [isShow, setIsShow] = useState(false)
     const listCart = useSelector(selectListCart)
 
@@ -57,4 +57,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default HeaderLayout

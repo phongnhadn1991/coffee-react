@@ -1,12 +1,12 @@
-import Footer from './layouts/footer';
-import Header from './layouts/header';
+import FooterLayout from './layouts/footerLayout';
+import HeaderLayout from './layouts/headerLayout';
 import RouterPage from './router/RouterPage';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <RouterPage />
-      <Footer />
+      <HeaderLayout />
+        <RouterPage />
+      <FooterLayout />
     </div>
   );
 }

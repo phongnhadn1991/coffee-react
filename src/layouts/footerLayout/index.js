@@ -1,6 +1,6 @@
 import './style.scss'
 
-const Footer = (props) => {
+const FooterLayout = (props) => {
     return (
         <div className="c-footer">
             <div className="container">
@@ -32,4 +32,4 @@ const Footer = (props) => {
     );
 }
 
-export default Footer;
+export default FooterLayout;
