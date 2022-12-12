@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ItemProduct from '../ItemProduct';
 import './style.scss'
@@ -6,7 +6,6 @@ import { selectProductFilter, fetchDataProduct } from '../../../features/product
 
 export const ListProduct = (props) => {
     const listProduct = useSelector(selectProductFilter)
-    const [listPro, setListPro] = useState(listProduct)
 
     const dispatch = useDispatch()
 

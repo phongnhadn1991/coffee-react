@@ -3,7 +3,7 @@ import './style.scss'
 
 const ListNews = (props) => {
 
-    const [listNews, setListNews] = useState([
+    const [listNews] = useState([
         { id: 1, title: "MỪNG NHÀ ĐÀ NẴNG LÊN 5 - NGUYỄN CHÍ THANH KHOÁC ÁO MỚI", srcImg: 'images/news/news_1.jpg' },
         { id: 2, title: "ĐẠI TIỆC TRÀ - CÀ PHÊ ĐỒNG GIÁ CHỈ 39K", srcImg: 'images/news/news_2.jpg' },
         { id: 3, title: "TIẾP BƯỚC RÔM RẢ - NHÀ TẶNG LIỀN 15%", srcImg: 'images/news/news_3.jpg' },
