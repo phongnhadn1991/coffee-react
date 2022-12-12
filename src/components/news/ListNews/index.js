@@ -22,7 +22,7 @@ const ListNews = (props) => {
                 <div className="box_wrap">
                     <div className="box_list_news">
                         {listNews && listNews.length > 0 && listNews.map(item => {
-                            const {id,title,srcImg} = item
+                            const { id, title, srcImg } = item
                             return (
                                 <div className="item" key={id}>
                                     <div className="item__thumb">
@@ -40,12 +40,10 @@ const ListNews = (props) => {
                                 </div>
                             )
                         })}
-
                     </div>
                 </div>
             </div>
         </div >
-
     )
 }
 

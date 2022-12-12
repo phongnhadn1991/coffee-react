@@ -3,7 +3,7 @@ import { formatPrice } from '../../../mixins/formatPrice'
 import { selectListCart, selectSubToTalCart } from '../../../features/cart/cartSlice'
 import ItemCart from '../ItemCart'
 import './style.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const ListCart = (props) => {
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import ListNews from '../components/news/ListNews';
 
 const LoginPage = (props) => {
     useEffect(() => {
@@ -13,7 +12,7 @@ const LoginPage = (props) => {
                         <div className="container-fluid h-custom">
                             <div className="row d-flex justify-content-center align-items-center h-100">
                                 <div className="col-md-9 col-lg-6 col-xl-5">
-                                    <img src="./images/login.webp" className="img-fluid" alt="Sample image" />
+                                    <img src="./images/login.webp" className="img-fluid" alt="bground" />
                                 </div>
                                 <div className="col-md-8 col-lg-6 col-xl-5">
                                     <form>
