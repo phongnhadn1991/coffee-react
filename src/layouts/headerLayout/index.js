@@ -1,3 +1,4 @@
+import { Avatar } from "antd";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,6 +8,7 @@ import './style.scss'
 const HeaderLayout = () => {
     const [isShow, setIsShow] = useState(false)
     const listCart = useSelector(selectListCart)
+    const userAuthLocal = JSON.parse(localStorage.getItem('userAuth_cofeeReact'))
 
     return (
         <header className="c-header">
@@ -27,7 +29,12 @@ const HeaderLayout = () => {
                         <ul>
                             <li>
                                 <a href='http://#' className="btn_login cursor-pointer" onClick={(e) => { e.preventDefault(); setIsShow(!isShow) }}>
-                                    <i className="bi bi-person" />
+                                    {userAuthLocal && (
+                                        <Avatar size={40} src={userAuthLocal.uphotoURL} />
+                                    )}
+                                    {!userAuthLocal && (
+                                        <i className="bi bi-person" />
+                                    )}
                                 </a>
                             </li>
                             <li>
@@ -42,9 +49,17 @@ const HeaderLayout = () => {
                         {isShow && (
                             <div className="box_action_user">
                                 <i className="btn_close bi bi-x-lg" onClick={() => setIsShow(!isShow)}></i>
-                                <Link to={'/login'}>
-                                    <span>Đăng nhập</span>
-                                </Link>
+                                {!userAuthLocal && (
+                                    <Link to={'/login'}>
+                                        <span>Đăng nhập</span>
+                                    </Link>
+                                )}
+                                {userAuthLocal && (
+                                    <Link to={'/login'} className="btn_login cursor-pointer" onClick={() => {localStorage.clear() }}>
+                                        <span>Đăng xuất</span>
+                                    </Link>
+                                )}
+
                                 <a href="http://">
                                     <span>Tra cứu đơn hàng</span>
                                 </a>
