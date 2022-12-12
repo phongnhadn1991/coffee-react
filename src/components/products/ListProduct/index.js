@@ -11,7 +11,7 @@ export const ListProduct = (props) => {
 
     useEffect(() => {
         dispatch(fetchDataProduct())
-    }, [])
+    }, [dispatch])
 
 
     return (
