@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './style.scss'
 
-export const Header = () => {
+const Header = () => {
     return (
         <header className="c-header">
             <div className="container">
@@ -11,19 +11,20 @@ export const Header = () => {
                     </div>
                     <div className="c-header__nav">
                         <nav>
-                            <li><Link to={'/'}>Home</Link></li>
-                            <li><Link to={'/products'}>Product</Link></li>
+                            <li><Link to={'/'}>Trang Chủ</Link></li>
+                            <li><Link to={'/products'}>Sản phẩm</Link></li>
+                            <li><Link to={'/news'}>Tin tức</Link></li>
                         </nav>
                     </div>
                     <div className="block-button">
                         <ul>
                             <li>
-                                <a className="btn_login cursor-pointer">
+                                <a href='http' className="btn_login cursor-pointer">
                                     <i className="bi bi-person" />
                                 </a>
                             </li>
                             <li>
-                                <a className="btn_cart position-relative cursor-pointer">
+                                <a href='http' className="btn_cart position-relative cursor-pointer">
                                     <i className="bi bi-bag" />
                                 </a>
                             </li>
@@ -34,3 +35,5 @@ export const Header = () => {
         </header >
     )
 }
+
+export default Header

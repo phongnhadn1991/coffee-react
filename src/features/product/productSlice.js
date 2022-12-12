@@ -17,9 +17,6 @@ export const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    addToCart: (state, action) => {
-      console.log('payload product id >> ', action.payload)
-    }
   },
   extraReducers: (builer) => {
       builer.addCase(fetchDataProduct.pending, (state, action) => {
@@ -35,7 +32,7 @@ export const productSlice = createSlice({
    },
 });
 
-export const { addToCart } = productSlice.actions;
+export const { } = productSlice.actions;
 
 // Selector
 export const selectListProduct = (state) => state.product.listProduct;
