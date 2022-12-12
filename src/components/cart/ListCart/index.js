@@ -3,11 +3,14 @@ import { formatPrice } from '../../../mixins/formatPrice'
 import { selectListCart, selectSubToTalCart } from '../../../features/cart/cartSlice'
 import ItemCart from '../ItemCart'
 import './style.scss'
+import { useEffect, useState } from 'react'
 
 const ListCart = (props) => {
 
     const listCartSelector = useSelector(selectListCart)
     const subToTalCartSelector = useSelector(selectSubToTalCart)
+
+    const [feeShip] = useState(0)
 
     const priceFreeShip = (priceSubToTal) => {
         return priceSubToTal < 100000 ? (100000 - priceSubToTal) : 0
@@ -61,10 +64,10 @@ const ListCart = (props) => {
                     <div className="row">
                         <p className="col" style={{ paddingLeft: 0 }}>Vận chuyển</p>
                         <p className="col text-right">
-                            {subToTalCartSelector > 100000 ? 'Miễn phí' : '15.000đ'}
+                            {subToTalCartSelector > 100000 ? (feeShip === 0 ? 'Miễn phí' : feeShip) : (subToTalCartSelector > 0 && subToTalCartSelector < 100000 ? formatPrice(15000) : formatPrice(0))}
                         </p>
                     </div>
-                    {subToTalCartSelector < 100000 &&
+                    {subToTalCartSelector > 0 && subToTalCartSelector < 100000 &&
                         (
                             <div className="row">
                                 <p className="col font-size-13" style={{ padding: 0 }}>Đặt thêm <span className="fw-bold">{formatPrice(priceFreeShip(subToTalCartSelector))}</span> để được miễn phí vận chuyển</p>
@@ -73,7 +76,7 @@ const ListCart = (props) => {
                     }
                     <div className="row" style={{ borderTop: '1px solid rgba(0, 0, 0, 0.1)', padding: '2vh 0' }}>
                         <div className="col" style={{ paddingLeft: 0 }}>Tổng tiền</div>
-                        <div className="col text-right">{formatPrice(subToTalCartSelector)}</div>
+                        <div className="col text-right">{formatPrice(subToTalCartSelector + (subToTalCartSelector === 0 || subToTalCartSelector > 100000 ? 0 : 15000))}</div>
                     </div>
                     <a className='btn_checkout' href="http://">THANH TOÁN</a>
                 </div>
