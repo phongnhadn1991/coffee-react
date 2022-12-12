@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ListCart from '../components/cart/ListCart';
 import ListCategory from '../components/category/ListCategory';
 import ListNews from '../components/news/ListNews';
@@ -6,6 +6,9 @@ import SlideHomePage from '../components/pages/homepage/SlideHomePage';
 import { ListProduct } from '../components/products/ListProduct';
 
 const Homepage = (props) => {
+    useEffect(() => {
+        document.title = 'The Coffee House'
+    }, [])
     return (
         <div className='l-homepage'>
             <SlideHomePage />
@@ -22,6 +25,9 @@ const Homepage = (props) => {
                 </div>
                 <ListCart />
                 <ListNews />
+                <div className="box_button text-center mt-5">
+                    <a href="http" className="btn_showAll">Xem tất cả <i className="bi bi-arrow-right" /></a>
+                </div>
             </div>
         </div>
     );

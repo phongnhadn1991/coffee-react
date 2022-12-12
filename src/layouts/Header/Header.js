@@ -1,7 +1,13 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectListCart } from "../../features/cart/cartSlice";
 import './style.scss'
 
 const Header = () => {
+    const [isShow, setIsShow] = useState(false)
+    const listCart = useSelector(selectListCart)
+
     return (
         <header className="c-header">
             <div className="container">
@@ -13,22 +19,37 @@ const Header = () => {
                         <nav>
                             <li><Link to={'/'}>Trang Chủ</Link></li>
                             <li><Link to={'/products'}>Sản phẩm</Link></li>
-                            <li><Link to={'/news'}>Tin tức</Link></li>
+                            <li><Link to={'/news'}>Tin tức & khuyến mãi</Link></li>
+                            <li><Link to={'/'}>Liên hệ</Link></li>
                         </nav>
                     </div>
                     <div className="block-button">
                         <ul>
                             <li>
-                                <a href='http' className="btn_login cursor-pointer">
+                                <a href='http://#' className="btn_login cursor-pointer" onClick={(e) => { e.preventDefault(); setIsShow(!isShow) }}>
                                     <i className="bi bi-person" />
                                 </a>
                             </li>
                             <li>
-                                <a href='http' className="btn_cart position-relative cursor-pointer">
+                                <Link className="btn_cart position-relative cursor-pointer" to={'/cart'}>
                                     <i className="bi bi-bag" />
-                                </a>
+                                    <span className="position-absolute top-20 start-100 translate-middle badge rounded-pill bg-danger">
+                                        {listCart.length}
+                                    </span>
+                                </Link>
                             </li>
                         </ul>
+                        {isShow && (
+                            <div className="box_action_user">
+                                <i className="btn_close bi bi-x-lg" onClick={() => setIsShow(!isShow)}></i>
+                                <a href="http://">
+                                    <span>Đăng nhập</span>
+                                </a>
+                                <a href="http://">
+                                    <span>Tra cứu đơn hàng</span>
+                                </a>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

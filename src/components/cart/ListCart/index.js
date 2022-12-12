@@ -61,12 +61,7 @@ const ListCart = (props) => {
                     <div className="row">
                         <p className="col" style={{ paddingLeft: 0 }}>Vận chuyển</p>
                         <p className="col text-right">
-                            {subToTalCartSelector > 100000 &&
-                                'Miễn phí'
-                            }
-                            {subToTalCartSelector < 100000 &&
-                                '15.000đ'
-                            }
+                            {subToTalCartSelector > 100000 ? 'Miễn phí' : '15.000đ'}
                         </p>
                     </div>
                     {subToTalCartSelector < 100000 &&

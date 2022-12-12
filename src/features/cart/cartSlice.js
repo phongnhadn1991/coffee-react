@@ -5,7 +5,7 @@ const updateLocalStorage = (cart) => {
 }
 
 const initialState = {
-  listCart: []
+  listCart: JSON.parse(localStorage.getItem('cart')) || []
 };
 
 export const cartSlice = createSlice({
@@ -20,7 +20,6 @@ export const cartSlice = createSlice({
         state.listCart = [...state.listCart,{...action.payload, qty:1}]
       }
       updateLocalStorage(state.listCart)
-      console.log(localStorage.getItem('cart'));
     },
     deleteItemCart: (state,action) => {
       state.listCart = state.listCart.filter(item => item.id !== action.payload)

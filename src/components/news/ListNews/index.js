@@ -42,9 +42,6 @@ const ListNews = (props) => {
                         })}
 
                     </div>
-                    <div className="box_button text-center mt-5">
-                        <a href="http" className="btn_showAll">Xem tất cả <i className="bi bi-arrow-right" /></a>
-                    </div>
                 </div>
             </div>
         </div >

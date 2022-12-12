@@ -7,6 +7,7 @@ const ListCategory = (props) => {
     const listCategory = useSelector(selectListCategory)
     const [listCate] = useState(listCategory)
     const dispatch = useDispatch()
+    const [currentActive, setCurrentActive] = useState(1)
 
     useEffect(() => {
         dispatch(filterCategory(1))
@@ -15,7 +16,7 @@ const ListCategory = (props) => {
     return (
         <div className='product__category'>
             {listCate && listCate.length && listCate.map(item => (
-                <div key={item.id} className='item' onClick={() => dispatch(filterCategory(item.id))}>
+                <div key={item.id} className={`item ${item.id === currentActive ? 'active' : ''}`} onClick={() => {dispatch(filterCategory(item.id)); setCurrentActive(item.id) }}>
                     <div className='item__thumb'>
                         <img src={item.srcImg} alt={item.name} />
                     </div>
