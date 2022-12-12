@@ -42,9 +42,9 @@ const HeaderLayout = () => {
                         {isShow && (
                             <div className="box_action_user">
                                 <i className="btn_close bi bi-x-lg" onClick={() => setIsShow(!isShow)}></i>
-                                <a href="http://">
+                                <Link to={'/login'}>
                                     <span>Đăng nhập</span>
-                                </a>
+                                </Link>
                                 <a href="http://">
                                     <span>Tra cứu đơn hàng</span>
                                 </a>
