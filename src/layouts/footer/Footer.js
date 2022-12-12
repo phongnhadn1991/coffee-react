@@ -9,19 +9,19 @@ const Footer = (props) => {
                     <div className="box_right">
                         <ul className="nav">
                             <li className="nav-item">
-                                <a href="#" className="nav-link px-2 text-muted">Home</a>
+                                <a href="http://" className="nav-link px-2 text-muted">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link px-2 text-muted">Features</a>
+                                <a href="http://" className="nav-link px-2 text-muted">Features</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link px-2 text-muted">Pricing</a>
+                                <a href="http://" className="nav-link px-2 text-muted">Pricing</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link px-2 text-muted">FAQs</a>
+                                <a href="http://" className="nav-link px-2 text-muted">FAQs</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link px-2 text-muted">About</a>
+                                <a href="http://" className="nav-link px-2 text-muted">About</a>
                             </li>
                         </ul>
                     </div>
