@@ -1,5 +1,5 @@
-import Footer from './layouts/footer/Footer';
-import Header from './layouts/header/Header';
+import Footer from './layouts/footer';
+import Header from './layouts/header';
 import RouterPage from './router/RouterPage';
 function App() {
   return (
