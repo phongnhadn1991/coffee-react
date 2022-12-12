@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const ListCategory = (props) => {
     const listCategory = useSelector(selectListCategory)
-    const [listCate, setListCate] = useState(listCategory)
+    const [listCate] = useState(listCategory)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(filterCategory(1))
-    }, [])
+    }, [dispatch])
 
     return (
         <div className='product__category'>
