@@ -32,7 +32,7 @@ export const productSlice = createSlice({
    },
 });
 
-export const { } = productSlice.actions;
+// export const { } = productSlice.actions;
 
 // Selector
 export const selectListProduct = (state) => state.product.listProduct;
