@@ -4,6 +4,7 @@ import { selectListCart, selectSubToTalCart } from '../../../features/cart/cartS
 import ItemCart from '../ItemCart'
 import './style.scss'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const ListCart = (props) => {
 
@@ -46,7 +47,7 @@ const ListCart = (props) => {
 
                     </div>
                     <div className="back-to-shop">
-                        <a href="http://">← <span className="text-muted">Tiếp tục mua hàng</span></a>
+                        <Link to={'/'}>← <span className="text-muted">Tiếp tục mua hàng</span></Link>
                     </div>
                 </div>
                 <div className="col-md-4 summary">
@@ -78,7 +79,7 @@ const ListCart = (props) => {
                         <div className="col" style={{ paddingLeft: 0 }}>Tổng tiền</div>
                         <div className="col text-right">{formatPrice(subToTalCartSelector + (subToTalCartSelector === 0 || subToTalCartSelector > 100000 ? 0 : 15000))}</div>
                     </div>
-                    <a className='btn_checkout' href="http://">THANH TOÁN</a>
+                    <Link to={'/login'} className='btn_checkout'>THANH TOÁN</Link>
                 </div>
             </div>
         </div>
