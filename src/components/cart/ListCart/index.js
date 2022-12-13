@@ -5,12 +5,13 @@ import ItemCart from '../ItemCart'
 import './style.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { selectAuthencation } from '../../../features/auth/authSlice'
 
 const ListCart = (props) => {
 
     const listCartSelector = useSelector(selectListCart)
     const subToTalCartSelector = useSelector(selectSubToTalCart)
-
+    const sateAuthencation = useSelector(selectAuthencation)
     const [feeShip] = useState(0)
 
     const priceFreeShip = (priceSubToTal) => {
@@ -79,7 +80,7 @@ const ListCart = (props) => {
                         <div className="col" style={{ paddingLeft: 0 }}>Tổng tiền</div>
                         <div className="col text-right">{formatPrice(subToTalCartSelector + (subToTalCartSelector === 0 || subToTalCartSelector > 100000 ? 0 : 15000))}</div>
                     </div>
-                    <Link to={'/login'} className='btn_checkout'>THANH TOÁN</Link>
+                    <Link to={'/checkout'} className={`btn_checkout btn ${!sateAuthencation ? 'disabled' : ''}`}>THANH TOÁN</Link>
                 </div>
             </div>
         </div>
