@@ -1,14 +1,18 @@
 import { Avatar } from "antd";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutAuthUser, selectAuthencation, selectAuthUser } from "../../features/auth/authSlice";
 import { selectListCart } from "../../features/cart/cartSlice";
 import './style.scss'
 
 const HeaderLayout = () => {
     const [isShow, setIsShow] = useState(false)
     const listCart = useSelector(selectListCart)
-    const userAuthLocal = JSON.parse(localStorage.getItem('userAuth_cofeeReact'))
+
+    const dispatch = useDispatch()
+    const sateAuthencation = useSelector(selectAuthencation)
+    const sateAuthUser = useSelector(selectAuthUser)
 
     return (
         <header className="c-header">
@@ -29,10 +33,10 @@ const HeaderLayout = () => {
                         <ul>
                             <li>
                                 <a href='http://#' className="btn_login cursor-pointer" onClick={(e) => { e.preventDefault(); setIsShow(!isShow) }}>
-                                    {userAuthLocal && (
-                                        <Avatar size={40} src={userAuthLocal.uphotoURL} />
+                                    {sateAuthencation && sateAuthUser && (
+                                        <Avatar size={40} src={sateAuthUser.uphotoURL} />
                                     )}
-                                    {!userAuthLocal && (
+                                    {!sateAuthencation && (
                                         <i className="bi bi-person" />
                                     )}
                                 </a>
@@ -49,13 +53,13 @@ const HeaderLayout = () => {
                         {isShow && (
                             <div className="box_action_user">
                                 <i className="btn_close bi bi-x-lg" onClick={() => setIsShow(!isShow)}></i>
-                                {!userAuthLocal && (
-                                    <Link to={'/login'}>
+                                {!sateAuthencation && (
+                                    <Link to={'/login'} onClick={() => setIsShow(!isShow)}>
                                         <span>Đăng nhập</span>
                                     </Link>
                                 )}
-                                {userAuthLocal && (
-                                    <Link to={'/login'} className="btn_login cursor-pointer" onClick={() => {localStorage.clear() }}>
+                                {sateAuthencation && (
+                                    <Link to={'/login'} className="btn_login cursor-pointer" onClick={() => {localStorage.clear(); dispatch(logoutAuthUser()); setIsShow(!isShow) }}>
                                         <span>Đăng xuất</span>
                                     </Link>
                                 )}

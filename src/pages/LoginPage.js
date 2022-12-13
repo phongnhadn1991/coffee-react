@@ -3,47 +3,44 @@ import { Avatar, Alert, Col, Row } from 'antd';
 
 import { auth, provider } from '../firebase';
 import { signInWithPopup } from 'firebase/auth'
-const LoginPage = (props) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAuthUser, selectAuthencation, selectAuthUser } from '../features/auth/authSlice';
 
+const LoginPage = (props) => {
+    const dispatch = useDispatch();
     const [value, setValue] = useState(null)
     const handleGoogle = () => {
         signInWithPopup(auth, provider).then((data) => {
-
-            setValue({
+            const payload = {
                 uid: data.user.uid,
                 uemail: data.user.email,
                 uphotoURL: data.user.photoURL,
-            })
-            localStorage.setItem('userAuth_cofeeReact', JSON.stringify({
-                uid: data.user.uid,
-                uemail: data.user.email,
-                uphotoURL: data.user.photoURL,
-            }))
+            }
+            setValue(payload)
+            dispatch(loginAuthUser(payload))
         })
     }
 
-    const userAuthLocal = JSON.parse(localStorage.getItem('userAuth_cofeeReact'))
+
+    const sateAuthencation = useSelector(selectAuthencation)
+    const sateAuthUser = useSelector(selectAuthUser)
 
     useEffect(() => {
         document.title = 'Đăng nhập'
     }, [])
 
-    useEffect(() => {
-        setValue(JSON.parse(localStorage.getItem('userAuth_cofeeReact')))
-    }, [])
-
     return (
         <>
-            {userAuthLocal && (
+            {sateAuthencation && sateAuthUser && (
                 <div className='container mt-5'>
                     <Row>
                         <Col span={3}>
-                            <Avatar size={100} src={userAuthLocal.uphotoURL} />
+                            <Avatar size={100} src={sateAuthUser.uphotoURL} />
                         </Col>
                         <Col span={21}>
                             <Alert
                                 message="Đăng nhập thành công"
-                                description={`Chào mừng ${userAuthLocal.uemail} đã trở lại.`}
+                                description={`Email: ${sateAuthUser.uemail} | uid: ${sateAuthUser.uid}`}
                                 type="success"
                                 showIcon
                             />
@@ -53,7 +50,7 @@ const LoginPage = (props) => {
 
                 </div>
             )}
-            {!userAuthLocal && (
+            {!sateAuthencation && (
                 <div className='l-loginPage'>
                     <div className='container'>
                         <div className="pt-5 w-75 mx-auto">
